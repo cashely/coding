@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Untitled Document</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link href="style/base.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class="header-content">
+        <h1>
+            <span><img src="images/logo.png"/></span>
+            <a href="#" class="link-login">user_name</a>
+        </h1>
+
+    </div>
+    </div>
+    <div class="content bg-data">
+        <div class="produce-box">
+            <ul>
+                <li class="ypbm">
+                    <div>
+                        <a href="#">进入系统</a>
+                    </div>
+                </li>
+                <li class="qxbm">
+                    <div>
+                        <a href="#">进入系统</a>
+                    </div>
+                </li>
+                <li class="jgzz">
+                    <div>
+                        <a href="#">进入系统</a>
+                    </div>
+                </li>
+                <li class="zsk">
+                    <div>
+                        <a href="#">进入系统</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <script src="js/jquery-1.7.1.min.js"></script>
+        <script>
+            (function($) {
+
+                var layer;
+                $(document).on('mouseenter', '.produce-box li', function() {
+                    isHover = true;
+                    $('.content').removeClass().addClass("bg-" + $(this).attr('class') + " content");
+                }).on('mouseleave', '.produce-box li', function() {
+                    console.log(2);
+                });
+                //绑定鼠标离开产品范围时现实大数据中心原始背景
+                $(document).on('mouseleave', '.produce-box', function() {
+                    $('.content').removeClass().addClass("content bg-data");
+                });
+
+                //遮罩层
+                function addLayer() {
+                    if (!layer) {
+                        var str = "<div class='layer-content'><i class='close'></i><h3>欢迎登录大数据中心</h3>";
+                        str += '<form><p><label>用户名</label><input type="text"/></p><p><label>密码</label><input type="password"/></p><p class="button"><button class="ok">确定</button><button class="cancel">关闭</button></p></form>';
+                        str += "</div>";
+                        layer = $('<div class="layer"></div>').append($(str)).appendTo($('body'));
+                    };
+                    showLayer();
+                }
+
+                function showLayer() {
+                    $('.layer').show();
+                }
+                function closeLayer() {
+                    $('.layer').hide();
+                }
+                $(document).on('click','.link-login',function() {
+                    addLayer();
+                });
+                $(document).on('click','.layer,.cancel', function() {
+                    closeLayer();
+                });
+                $(document).on('click','.layer-content', function(e) {
+                    e.stopPropagation();
+                });
+            })(jQuery);
+
+        </script>
+</body>
+
+</html>
