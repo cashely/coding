@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>Untitled Document</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-touch.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controller.js"></script>
+</head>
+<body ng-app='test'>
+    <div ng-controller='testCtrl' >
+        <input placeholder="{{inputText || ''}}" type="text" ng-focus='showLog()'/>
+        <p ng-swipe-left="message = 2">{{message || '33wewe'}}</p>
+    </div>
+</body>
+</html>

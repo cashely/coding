@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Untitled Document</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/angular-touch.min.js"></script>
+</head>
+<body data-ng-app='myTest' class="body">
+    <div data-ng-controller='myCtrl' ng-tap='clickEvent()'>
+        {{title | date}}
+    </div>
+    <h2>ng-template<a href="#index">link</a></h2>
+    <div ng-view>
+        
+    </div>
+<!--    <script type="text/ng-template" src="templates/template.js" id="index.htm">-->
+        
+    </script>
+</body>
+    <script>
+        var app = angular.module('myTest',['ngRoute','ngTouch']);
+        app.value('defaultNum',5);
+        console.log(app);
+        app.config(['$routeProvider',function($routeProvider){
+            $routeProvider.
+            when('/index',{
+                templateUrl:'templates/template.html'
+            }).
+            otherwise({
+                redirectTo:'/'
+            });
+        }]);
+        var myCtrl = function($scope,defaultNum,$swipe){
+            $scope.title = new Date();
+            console.log($swipe);
+            $scope.$on('login',function(){
+                $scope.title = 'login click!';
+            });
+            $scope.clickEvent = function(){
+                $scope.$emit('login');
+            }
+        };
+        myCtrl.$inject = ['$scope','defaultNum','$swipe'];
+        app.factory('myHttp',function(){
+            return {
+                list:function(){
+                    console.log(1);
+                }
+            }
+        });
+        
+//        console($myHttp.list());
+        app.controller('myCtrl',myCtrl);
+    </script>
+</html>

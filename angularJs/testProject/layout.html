@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Untitled Document</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link href="style/angular-layout.min.css" rel="stylesheet"/>
+    <script src="js/angular.min.js"></script>
+<!--    <script src="js/angular-layout.min.js"></script>-->
+</head>
+<body>
+    <div ng-view></div>
+    <div ng-view></div>
+<script>
+    var app = angular.module('layout',[]);
+    app.controller('a',['$scope',function($scope){
+        $scope.name="a";
+    }]);
+</script>
+</body>
+</html>

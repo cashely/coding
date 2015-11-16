@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Untitled Document</title>
+    <script src="js/jquery.min.js"></script>
+    <style>
+        .animate-show{
+            -webkit-transition: all .5s;
+            transition: all .5s;
+            opacity: 1;
+        }
+        .animate-show.ng-hide{
+            -webkit-transition: all .5s;
+            transition: all .5s;
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body ng-app='test'>
+
+    <div ng-controller='ctrlFirst'>
+        <span class="aa" ng-bind='bind.span'></span>
+
+        <form>
+            <label>
+                name
+                <input type="text" ng-trim='true' ng-model='user.name' />
+            </label>
+            <label>
+                password
+                <input type="password" ng-model='user.password' />
+            </label>
+            <label>
+                arg
+                <input type="number" ng-model='user.arg' />
+            </label>
+            <p>
+                <button ng-click='show(user)'>show</button>
+                <button ng-click='reset()'>reset</button>
+            </p>
+            <div ng-show='showArg'>
+                {{data | json}}
+            </div>
+            <input type="checkbox" ng-model='master'/>
+            <input type="checkbox" ng-checked='master'/>
+            <input type="checkbox" ng-model='deleted'/>
+            <input type="checkbox" ng-model='important'/>
+            <div ng-class='{strike:deleted,bold:important}'></div>
+            <div ng-init='names=["cashely","ivy","vivi"]'>
+                <span ng-repeat='name in names' ng-class-odd="'odd'" ng-class-even="'even'" ng-bind='name'></span>
+            </div>
+            <div ng-init='name=0'>
+                <button ng-bind='name' ng-click='name= name + 1'></button>
+                <span ng-cloak ng-cloak='ng-cloak'>{{'ie7'}}</span>
+            </div>
+            <div>
+                <input ng-copy='copy=true' ng-init='copy=false' type='text'/>
+                {{copy}}
+            </div>
+            <div>
+                <span ng-init='cut=false' ng-cut='cut=true'>this is a test area!</span>
+                {{cut}}
+            </div>
+            <div>
+                <span ng-init='dblclick=false' ng-dblclick='dblclick=true'>this is a text area for dblclick!</span>
+                {{dblclick}}
+            </div>
+            <div>
+                <input type="checkbox" ng-model='disAable'/>
+                <input type="text" ng-disabled='disAable'/>
+            </div>
+            <div>
+                <input ng-init='mouseStatu=false' ng-focus='mouseStatu=true' ng-blur='mouseStatu=false' type="text"/>
+                <input type="checkbox" ng-checked='mouseStatu'/>
+            </div>
+            <div class="ng-hide">
+                qweqwe
+            </div>
+            <div>
+                <input type="checkbox" ng-model='check'/>
+                <p class="animate-show" ng-show='check'>this is a text area!</p>
+            </div>
+            <div>
+                <input type="text" ng-model='hrefValue'/>
+                <a href="" ng-href='{{hrefValue}}'>链接地址</a>
+            </div>
+            <div>
+                <input type="checkbox" ng-model='checked'/>
+                this is a:<div ng-if='checked'>adasdadada</div>
+            </div>
+            <div ng-include='templates/template.html'></div>
+            <div>
+                <p>{{1+2}}</p>
+                <p ng-non-bindable>{{1+2}}</p>
+            </div>
+            <div>
+                <textarea ng-model='textArea'></textarea>
+            </div>
+        </form>
+        <div>
+            $log:
+            <p>this is a $log area!</p>
+            <input type="text" ng-model='message'/>
+            <button ng-click='$log.log(message)'>log</button>
+        </div>
+    </div>
+</body>
+    <script src="js/angular.min.js"></script>
+<script>
+    var testApp = angular.module('test', []);
+    testApp
+        .controller('ctrlFirst', function($scope,$log) {
+            var sp = $scope;
+            sp.showArg = false;
+            sp.bind = {};
+            console.log(jQuery('.aa').width());
+            console.log('angular.equals:' + angular.equals(1, '1'));
+            sp.bind.span = '这是一个用bind绑定span标签的例子';
+            sp.show = function(user) {
+                //                    sp.showArg = true;
+                sp.master = angular.copy(user);
+            };
+            sp.reset = function() {
+                sp.data = sp.master;
+                sp.showArg = true;
+                angular.copy(sp.master, sp.user);
+            };
+//        console.log($locationProvider.html5Mode(true));
+            sp.textArea="i am is a textArea!";
+            console.log('angular.identity:' + typeof(angular.identity(12)));
+            console.log('angular.scope:' + angular.element('.aa').scope());
+            console.log('angular.isElement:' + angular.isElement(angular.element('.aa')));
+            console.log('angular.lowercase:' + angular.lowercase('CASHELY'));
+            sp.$log = $log;
+            sp.message = 'test $log';
+        });
+    //        angular.bootstrap(document,['test']);
+        
+
+</script>
+
+</html>

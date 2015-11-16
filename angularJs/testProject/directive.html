@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Untitled Document</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <script src="js/angular.min.js"></script>
+    <script src="js/directive.js"></script>
+    <style>
+        .idName{
+            color: red;
+        }
+    </style>
+    <script>
+app.controller('directiveCtrl',function($scope){
+//    $scope.idName = 'idName';
+});
+
+    </script>
+</head>
+
+<body ng-app='directive'>
+    <div ng-controller='directiveCtrl'>
+        <input type="text" ng-model='idName'/>
+        <div my-directive class="other" my-class='{{idName}}' my-id='bb'>
+
+        </div>
+    </div>
+</body>
+
+</html>

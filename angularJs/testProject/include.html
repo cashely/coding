@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Untitled Document</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <script src="js/angular.min.js"></script>
+    <script>
+        var app = angular.module('test',[]);
+    </script>
+</head>
+<body ng-app='test'>
+    <div ng-controller='aa'>
+    <input value="" ng-model="name"/>
+        <p>{{name}}</p>
+    </div>
+    <script>
+        app.controller('aa',function($scope){
+            $scope.name='sdsdd.shi';
+        });
+    </script>
+</body>
+</html>
