@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Untitled Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        video{
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        #video{
+            background-color: rgba(0,0,0,.8);
+        }
+    </style>
+</head>
+<body>
+
+
+
+</body>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        var $time = (function(){
+            
+            var t,o,isActived = false,a=0,maxTime = 5,
+                videoSource = 'video/cg.mp4';//默认maxTime时间是5s
+            var windowArgs = {
+                width:$(window).width(),
+                height:$(window).height()
+            };
+            var str = '<div id="video" style="width:'+windowArgs.width+'px;height:'+windowArgs.height+'px"></div>';
+            function timeAdd(){
+                if(!isActived){
+                    a +=1 ;//计时器累加
+                    console.log(a);
+                }
+            };
+            function timeWatch(){
+                if(a>=maxTime && !isActived){
+                    addLayer();
+                    a = 0;//重置计时器
+                }
+            }
+            //添加层动画
+            function addLayer(){
+                if($("#video").length>0){
+                    $("#video").show(0);
+                }else{
+                    $(str).appendTo($('body'));
+                }
+                $("#video").append($('<video src="'+videoSource+'"></video>').prop('autoplay','autoplay'));
+                isActived = true;
+                
+            }
+            $(window).on('mousemove keydown mousedown',function(){
+                if($("#video").length>0){
+                    $("#video").children().remove().end().hide(0);
+                }
+                a = 0;//鼠标移动重置事件
+                isActived = false;
+                
+            });
+            t = setInterval(timeAdd,1000);//计时器
+            o = setInterval(timeWatch,1000);//监测数据变更
+        })();
+    </script>
+</html>
