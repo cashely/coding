@@ -1,0 +1,59 @@
+<!-- 编辑角色 -->
+<div class="easyui-dialog panel-defalut" style="width:600px;height:auto;" id="editRole">
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="addUsername">角色名称</label>
+            <div class="col-sm-4">
+                <input type="text" id="addUsername" class="form-control input-sm" />
+            </div>
+            <label class="col-sm-2 control-label" for="addUsername">角色状态</label>
+            <div class="col-sm-4">
+                <label class="checkbox-inline">
+                    <input type="radio" name="radio1" value="option1">正常
+                </label>
+                <label class="checkbox-inline">
+                    <input type="radio" name="radio1" value="option1">禁止
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="addUsername">最后更新人</label>
+            <div class="col-sm-4">
+                <input type="text" id="addUsername" class="form-control input-sm" disabled />
+            </div>
+            <label class="col-sm-2 control-label" for="addUsername">最后更新时间</label>
+            <div class="col-sm-4">
+                <input type="text" id="addUsername" class="form-control input-sm" disabled />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="addUsername">创建人</label>
+            <div class="col-sm-4">
+                <input type="text" id="addUsername" class="form-control input-sm" disabled />
+            </div>
+            <label class="col-sm-2 control-label" for="addUsername">创建时间</label>
+            <div class="col-sm-4">
+                <input type="text" id="addUsername" class="form-control input-sm" disabled />
+            </div>
+        </div>
+    </form>
+    <script>
+		$('#editRole').dialog({
+			title:'编辑角色',
+			closed:false,
+			modal:true,
+			onClose:function(){
+				$(this).dialog('destroy');
+			},
+			buttons:[{text:'确定',
+					  handler:function(){
+						  
+					 }},
+					 {text:'取消',
+					  handler:function(){
+					 	$('#editRole').dialog('destroy');
+					 }
+					}]
+		});
+	</script>
+</div>

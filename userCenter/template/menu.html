@@ -1,0 +1,102 @@
+<div class="easyui-layout" data-options="fit:true,border:false">
+    <div data-options="region:'north',border:false" style="height:70px">
+        <form>
+            <div class="row form-row">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label for="rolename">菜单名称</label>
+                        <input type="text" class="form-control input-sm" id="menuname" />
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label for="companyid">父级菜单</label>
+                        <input type="text" class="form-control input-sm" id="parentmenu" />
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label for="username">菜单状态</label>
+                        <select class="form-control input-sm">
+                            <option>正常</option>
+                            <option>不正常</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-3 search-btn">
+                    <div class="btn-group">
+                        <a href="#" class="btn btn-primary"><span class="fa fa-search"></span>查询</a>
+                        <a href="javascript:void(0);" class="btn btn-success" onclick="ajaxLoadframe('addMenu')"><span class="fa fa-plus"></span>新增</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div data-options="region:'center',border:false" style="padding:10px;">
+        <table id="menuTable" class="table"></table>
+        <script>
+		    $('#menuTable').treegrid({
+		        url: 'json/menu.json',
+		        method: 'get',
+		        border: false,
+		        fit: true,
+		        maxHeight: '100%',
+		        singleSelect: true,
+		        striped: true,
+		        fitColumns: true,
+		        rownumbers:true,
+		        idField: 'id',
+		        treeField: 'menuname',
+		        columns: [
+		            [{
+		                field: 'menuname',
+		                title: '菜单名称',
+		                width: 100
+		            }, {
+		                field: 'userange',
+		                title: '使用范围',
+		                width: 100
+		            }, {
+		                field: 'url',
+		                title: 'url',
+		                width: 100
+		            }, {
+		                field: 'menustatu',
+		                title: '菜单状态',
+		                width: 100
+		            }, {
+		                field: 'createid',
+		                title: '创建人',
+		                width: 100
+		            }, {
+		                field: 'createtime',
+		                title: '创建时间',
+		                width: 100
+		            }, {
+		                field: '_edit',
+		                title: '操作',
+		                align: 'center',
+		                width: 50,
+		                formatter: function(val, row, index) {
+		                    return '<div class="btn-group"><a class="btn-sm btn-link fn-edit-menu" href="javascript:void(0)"><span class="fa fa-edit"></span></a><a class="btn-sm btn-link fn-set-menu" href="javascript:void(0)"><span class="fa fa-gear"></span></a></div>';
+		                }
+		            }]
+		        ]
+		    });
+		</script>
+    </div>
+</div>
+<script>
+	$(document).on('click','a.fn-edit-menu',function(){
+// 		$('#editMenu').dialog('open');
+		ajaxLoadframe('editMenu');
+	});	
+	$(document).on('click','a.fn-set-menu',function(){
+// 		$('#setMenu').dialog('open');
+		ajaxLoadframe('setMenu');
+	});
+	$(document).on('click','a.fn-set-edit-menu',function(){
+// 		$('#setEditMenu').dialog('open');
+		ajaxLoadframe('setEditMenu');
+	});
+</script>

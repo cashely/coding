@@ -1,0 +1,71 @@
+<div class="easyui-dialog panel-defalut" style="width:600px;height:360px;" id="setEditmenu">
+	<!-- 功能菜单编辑 -->
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="addUsername">功能名称</label>
+            <div class="col-sm-9">
+                <input type="text" id="addUsername" class="form-control input-sm" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="addUsername">URL</label>
+            <div class="col-sm-9">
+                <input type="text" id="addUsername" class="form-control input-sm" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="addUsername">功能状态</label>
+            <div class="col-sm-9">
+                <label class="checkbox-inline">
+                    <input type="radio" name="radio1" value="option1">正常
+                </label>
+                <label class="checkbox-inline">
+                    <input type="radio" name="radio1" value="option1">禁止
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="addUsername">最后更新人</label>
+            <div class="col-sm-9">
+                <input type="text" id="addUsername" class="form-control input-sm" disabled />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="addUsername">最后更新时间</label>
+            <div class="col-sm-9">
+                <input type="text" id="addUsername" class="form-control input-sm" disabled />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="addUsername">创建人</label>
+            <div class="col-sm-9">
+                <input type="text" id="addUsername" class="form-control input-sm" disabled />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="addUsername">创建时间</label>
+            <div class="col-sm-9">
+                <input type="text" id="addUsername" class="form-control input-sm" disabled />
+            </div>
+        </div>
+    </form>
+    <script>
+    	$('#setEditmenu').dialog({
+			title:'功能编辑',
+			closed:false,
+			modal:true,
+			onClose:function(){
+				$(this).dialog('destroy');
+			},
+			buttons:[{text:'确定',
+					  handler:function(){
+						  
+					 }},
+					 {text:'取消',
+					  handler:function(){
+					 	$('#setEditmenu').dialog('destroy');
+					 }
+					}]
+		});
+    </script>
+</div>

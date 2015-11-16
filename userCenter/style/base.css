@@ -1,0 +1,215 @@
+html,
+body {
+    width: 100%;
+    font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    height: 100%;
+    margin: 0;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+h1 {
+    margin: 0;
+}
+ul,
+li {
+    list-style: none;
+}
+.container-fluid{
+    width: 100%;
+    height: 100%;
+}
+.main {
+    height: 100%;
+    /*            padding-left: 200px;*/
+}
+.silderLeft {
+    float: left;
+    width: 200px;
+    position: relative;
+    z-index: 10;
+    height: 100%;
+}
+.silderLeft .layout-panel-north .panel-body {
+    background-color: #0E90D2;
+}
+.silderLeft .layout-panel-center .panel-body {
+    background-color: #0B70A4;
+}
+.main-head {
+    background-color: #f3f3f4;
+    border-bottom: 1px solid #E7EAEC !important;
+}
+.tabs-header {
+    padding: 0;
+}
+.tabs-header,
+.tabs-tool {
+    background-color: #fafafa;
+}
+.tabs {
+    height: 40px;
+    line-height: 40px;
+    padding-left: 0;
+    border-bottom: 3px solid #0E90D2;
+}
+.tabs li {
+    margin-right: 0;
+    margin-left: -1px;
+}
+.tabs li.tabs-selected a.tabs-inner,
+.tabs li.tabs-selected a.tabs-inner:hover {
+    border-bottom: 0;
+    background: #0E90D2;
+    font-weight: normal;
+    color: #fff;
+    border: 1px solid #eee;
+    border-top-width: 0;
+    border-bottom-width: 0;
+}
+.tabs li a.tabs-inner {
+    color: #999;
+}
+.tabs li a.tabs-close:hover {
+    background-color: transparent;
+}
+.tabs li a.tabs-inner {
+    height: 40px;
+    line-height: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    /*            line-height: 40px;*/
+    border-radius: 0;
+    transition: all .2s;
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-top-width: 0;
+    border-bottom-width: 0;
+}
+.tabs li a.tabs-inner:hover {
+    background-color: #eee;
+}
+.tabs li a.tabs-close {
+    border-radius: 100%;
+    padding: 2px;
+    margin-top: -8px;
+    background-image: none;
+    color: #a9a9a9;
+    background-color: transparent;
+}
+.tabs li a.tabs-close:before {
+    content: '\f057';
+    z-index: 99;
+    font-size: 16px;
+    font-family: FontAwesome;
+    left: 0;
+    top: 0;
+    display: block;
+    position: absolute;
+    width: 100%;
+    line-height: 16px;
+    text-align: center;
+    height: 100%;
+}
+.tabs li a.tabs-close:hover {
+    color: #DD514C;
+}
+.easyui-layout .user-message {
+    padding: 10px 20px;
+    text-align: left;
+    color: #fff;
+    line-height: 2;
+}
+.user-message a {
+    color: rgb(16, 80, 113);
+    line-height: 1.5;
+    text-decoration: none;
+}
+.user-img img {
+    padding: 2px;
+    margin: 0 0 10px 0;
+    width: 80px;
+    height: 80px;
+    background-color: #fff;
+    border-radius: 100%;
+    overflow: hidden;
+    border: 1px solid #d1d1d1;
+    display: block;
+}
+.nav {
+    line-height: 40px;
+    padding: 0;
+    margin: 0;
+}
+.nav a {
+    color: #c6c6c6;
+    text-decoration: none;
+    display: block;
+    font-size: 12px;
+    padding-left: 10px;
+}
+.nav span {
+    display: inline-block;
+    width: 30px;
+    font-size: 14px;
+    text-align: center;
+}
+.nav a:hover {
+    background-color: #075075;
+    color: #fff;
+}
+.user-message .btn {
+    background-color: #ED5565;
+    padding: 3px 5px;
+    float: right;
+    border-radius: 5px;
+    display: inline-block;
+    color: #fff;
+}
+.btn:hover {
+    background-color: #A94442;
+}
+.header-notice {
+    text-align: right;
+    margin-top: -35px;
+}
+.header-notice a {
+    display: inline-block;
+    width: 40px;
+    position: relative;
+    height: 40px;
+    line-height: 40px;
+    font-size: 20px;
+    text-align: center;
+    color: #A9A9A9;
+}
+.header-notice a .tip {
+    position: absolute;
+    border-radius: 100%;
+    display: inline-block;
+    width: 15px;
+    top: 5px;
+    right: 5px;
+    font-style: normal;
+    line-height: 15px;
+    height: 15px;
+    font-size: 10px;
+    color: #fff;
+}
+.header-notice a:hover {
+    color: #696969;
+}
+.tip.tip-info {
+    background-color: #F8AC59;
+}
+.tip.tip-success {
+    background-color: #1AB394;
+}
+#header-tabs .panel-body {
+    padding: 10px;
+    overflow: auto;
+}
+input{
+    width: 100%;
+}

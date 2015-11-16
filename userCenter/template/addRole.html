@@ -1,0 +1,39 @@
+<div class="easyui-dialog panel-defalut" style="width:600px;height:auto;" id="addRole">
+<!-- 新增角色 -->
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="addUsername">角色名称</label>
+            <div class="col-sm-4">
+                <input type="text" id="addUsername" class="form-control input-sm" />
+            </div>
+            <label class="col-sm-2 control-label" for="addUsername">角色状态</label>
+            <div class="col-sm-4">
+                <label class="checkbox-inline">
+                    <input type="radio" name="radio1" value="option1">正常
+                </label>
+                <label class="checkbox-inline">
+                    <input type="radio" name="radio1" value="option1">禁止
+                </label>
+            </div>
+        </div>
+    </form>
+    <script>
+		$('#addRole').dialog({
+			title:'新增角色',
+			closed:false,
+			modal:true,
+			onClose:function(){
+				$(this).dialog('destroy');
+			},
+			buttons:[{text:'确定',
+					  handler:function(){
+						  
+					 }},
+					 {text:'取消',
+					  handler:function(){
+					 	$('#addRole').dialog('destroy');
+					 }
+					}]
+		});
+	</script>
+</div>

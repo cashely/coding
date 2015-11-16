@@ -1,0 +1,231 @@
+<div class="easyui-dialog panel-defalut" style="width:600px;" id="setWhiteUser">
+	<!-- 编辑用户 -->
+    <div class="easyui-layout" data-options="fit:true">
+        <div data-options="region:'north',border:false" style="height:80px;">
+            <div class="panel panel-default panel-block">
+                <div class="panel-heading">用户信息</div>
+                <div class="panel-body form-horizontal">
+                    <label class="col-sm-2 control-label">用户名:</label>
+                    <div class="col-sm-2">
+                        <p class="form-control-static">
+                            辣条点点
+                        </p>
+                    </div>
+                    <label class="col-sm-2 control-label">用户别名:</label>
+                    <div class="col-sm-2">
+                        <p class="form-control-static">
+                            辣条
+                        </p>
+                    </div>
+                    <label class="col-sm-2 control-label">手机号:</label>
+                    <div class="col-sm-2">
+                        <p class="form-control-static">
+                            15013306010
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div data-options="region:'center',border:false">
+            <div class="easyui-layout" data-options="fit:true">
+	            <div class="" id="setWhiteUserTabs">
+		            <div title="设置黑名单">
+			            <div class="easyui-layout" data-options="fit:true">
+				            <div data-options="region:'north',border:false">
+					            <form>
+						            <div class="row form-row">
+						                <div class="col-sm-4">
+						                    <div class="form-group">
+						                        <label for="rolename">菜单名称</label>
+						                        <input type="text" class="form-control input-sm" id="rolename" />
+						                    </div>
+						                </div>
+						                <div class="col-sm-4">
+						                    <div class="form-group">
+						                        <label for="companyid">使用范围</label>
+						                        <input type="text" class="form-control input-sm" id="companyid" />
+						                    </div>
+						                </div>
+						                <div class="col-sm-4 search-btn">
+							                <a href="#" class="btn-sm btn-success" style="display: inline-block;"><span class="fa fa-search"></span>查询</a>
+							            </div>
+						            </div>
+						        </form>
+				            </div>
+				            <div data-options="region:'center',border:false" style="height:170px">
+					            <table class="easyui-treegrid" id="setWhiteUsertable"></table>
+					            <script>
+					                function show(checkid) {
+					                    var s = '#check_' + checkid;
+					                    //alert( $(s).attr("id"));
+					                    // alert($(s)[0].checked);
+					                    /*选子节点*/
+					                    var nodes = $("#setWhiteUsertable").treegrid("getChildren", checkid);
+					                    for (i = 0; i < nodes.length; i++) {
+					                        $(('#check_' + nodes[i].id))[0].checked = $(s)[0].checked;
+					
+					                    }
+					                    //选上级节点
+					                    if (!$(s)[0].checked) {
+					                        var parent = $("#setWhiteUsertable").treegrid("getParent", checkid);
+					                        if (parent) {
+					                            $(('#check_' + parent.id))[0].checked = false;
+					                            while (parent) {
+					                                $(('#check_' + parent.id))[0].checked = false;
+					                                parent = $("#setWhiteUsertable").treegrid("getParent", parent.id);
+					
+					                            }
+					                        }
+					                    } else {
+					                        var parent = $("#setWhiteUsertable").treegrid("getParent", checkid);
+					                        if (parent) {
+					                            var flag = true;
+					                            var sons = parent.sondata.split(',');
+					                            for (j = 0; j < sons.length; j++) {
+					                                if (!$(('#check_' + sons[j]))[0].checked) {
+					                                    flag = false;
+					                                    break;
+					                                }
+					                            }
+					                            if (flag)
+					                                $(('#check_' + parent.id))[0].checked = true;
+					                            while (flag) {
+					                                parent = $("#setWhiteUsertable").treegrid("getParent", parent.id);
+					                                if (parent) {
+					                                    sons = parent.sondata.split(',');
+					                                    for (j = 0; j < sons.length; j++) {
+					                                        if (!$(('#check_' + sons[j]))[0].checked) {
+					                                            flag = false;
+					                                            break;
+					                                        }
+					                                    }
+					                                }
+					                                if (flag)
+					                                    $(('#check_' + parent.id))[0].checked = true;
+					                            }
+					                        }
+					                    }
+					                }
+					                $('#setWhiteUsertable').treegrid({
+					                    url: 'json/menu.json',
+					                    idField: 'id',
+					                    treeField: 'menuname',
+					                    method: 'get',
+					                    border: false,
+					                    fit: true,
+					                    maxHeight: '100%',
+					                    singleSelect: true,
+					                    striped: true,
+					                    fitColumns: true,
+					                    rownumbers: true,
+					                    columns: [
+					                        [{
+					                            field: 'menuname',
+					                            title: '菜单名称',
+					                            width: 100,
+					                            formatter: function(val, row, index) {
+					                                return "<input onclick='show(" + row.id + ")' type='checkbox' id='check_" + row.id + "' " + (row.checked ? 'checked' : '') + "/>" + val;
+					                            }
+					                        }, {
+					                            field: 'userange',
+					                            title: '使用范围',
+					                            width: 100
+					                        }]
+					                    ]
+					
+					                });
+					
+					            </script>
+				            </div>
+			            </div>
+			            
+		            </div>
+		            
+		            <div title="白名单查看">
+			            <div class="easyui-layout" data-options="fit:true">
+				            <div data-options="region:'north',border:false">
+					            <form>
+						            <div class="row form-row">
+						                <div class="col-sm-4">
+						                    <div class="form-group">
+						                        <label for="rolename">菜单名称</label>
+						                        <input type="text" class="form-control input-sm" id="rolename" />
+						                    </div>
+						                </div>
+						                <div class="col-sm-4">
+						                    <div class="form-group">
+						                        <label for="companyid">使用范围</label>
+						                        <input type="text" class="form-control input-sm" id="companyid" />
+						                    </div>
+						                </div>
+						                <div class="col-sm-4 search-btn">
+							                <a href="#" class="btn-sm btn-success" style="display: inline-block;"><span class="fa fa-search"></span>查询</a>
+							            </div>
+						            </div>
+						        </form>
+				            </div>
+				            <div data-options="region:'center',border:false" style="height:170px;">
+					            <table id="checkWhiteUserTable" class="table"></table>
+						        <script>
+								    $('#checkWhiteUserTable').treegrid({
+								        url: 'json/menu.json',
+								        method: 'get',
+								        border: false,
+								        fit: true,
+								        maxHeight: '100%',
+								        singleSelect: true,
+								        striped: true,
+								        fitColumns: true,
+								        rownumbers:true,
+								        idField: 'id',
+								        treeField: 'menuname',
+								        columns: [
+								            [{
+								                field: 'menuname',
+								                title: '菜单名称',
+								                width: 100
+								            }, {
+								                field: 'userange',
+								                title: '使用范围',
+								                width: 100
+								            }]
+								        ]
+								    });
+								</script>
+			            </div>
+			            
+		            </div>
+	            </div>
+            </div>
+        </div>
+    </div>
+    <script>
+	    $('#setWhiteUserTabs').tabs({
+	        border:false,
+	        tabHeight:'30px',
+	        height:300
+        });
+	    
+        $('#setWhiteUser').dialog({
+            title: '设置白名单',
+            closed: false,
+            modal: true,
+            onClose: function() {
+                $(this).dialog('destroy');
+            },
+            buttons: [{
+                text: '确定',
+                handler: function() {
+
+                }
+            }, {
+                text: '取消',
+                handler: function() {
+                    $('#setWhiteUser').dialog('destroy');
+                }
+            }]
+        });
+                
+    </script>
+</div>

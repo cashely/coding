@@ -1,0 +1,88 @@
+<div class="easyui-dialog" id="choiceCompany" style="width:600px;">
+    <div class="easyui-layout" data-options="fit:true">
+        <div data-options="region:'north',border:false" style="height:70px">
+            <form>
+                <div class="row form-row">
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <label for="choiceCompanyname">机构名称</label>
+                            <input type="text" id="choiceCompanyname" class="form-control input-sm" />
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <label>机构类型</label>
+                            <select class="form-control input-sm">
+                                <option>药品生产企业</option>
+                                <option>药品生产企业</option>
+                                <option>药品生产企业</option>
+                                <option>药品生产企业</option>
+                                <option>药品生产企业</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 search-btn">
+                        <button class="btn btn-sm btn-primary"><span class="fa fa-search"></span>查询</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div data-options="region:'center',border:false" style="height:250px;">
+            <table id="choiceCompanytable" class="table"></table>
+        </div>
+    </div>
+    <script>
+        $('#choiceCompanytable').datagrid({
+            url: 'json/user.json',
+            method: 'get',
+            border: false,
+            fit: true,
+            maxHeight: '100%',
+            singleSelect: true,
+            nowrap: true,
+            striped: true,
+            rownumbers: true,
+            fitColumns: true,
+            columns: [
+                [{
+                    field: '_name',
+                    title: '选择',
+                    width: 20,
+                    align: 'center',
+                    formatter: function(val, row, index) {
+                        return "<input type=radio name=choiceCompanyselect id=choiceCompanyselect" + index + " value=1/>"
+                    }
+
+                }, {
+                    field: 'company',
+                    title: '机构名称',
+                    width: 100
+                }, {
+                    field: 'companyid',
+                    title: '机构类型',
+                    width: 100
+                }]
+            ]
+        });
+        $('#choiceCompany').dialog({
+            title: '选择机构',
+            closed: false,
+            modal: true,
+            onClose: function() {
+                $(this).dialog('destroy');
+            },
+            buttons: [{
+                text: '确定',
+                handler: function() {
+
+                }
+            }, {
+                text: '取消',
+                handler: function() {
+                    $('#choiceCompany').dialog('destroy');
+                }
+            }]
+        });
+
+    </script>
+</div>

@@ -1,0 +1,108 @@
+<div class="easyui-dialog panel-defalut" style="width:600px;height:400px;" id="setMenu">
+    <!-- 功能设置 -->
+    <div class="easyui-layout" data-options="fit:true">
+        <div data-options="region:'north',border:false" style="height:135px;">
+            <div class="panel panel-default panel-block">
+                <div class="panel-heading">菜单信息</div>
+                <div class="panel-body form-horizontal">
+                    <label class="col-sm-2 control-label">菜单名:</label>
+                    <div class="col-sm-2">
+                        <p class="form-control-static">
+                            订单管理
+                        </p>
+                    </div>
+                    <label class="col-sm-2 control-label">父级菜单:</label>
+                    <div class="col-sm-2">
+                        <p class="form-control-static">
+                            菜单一
+                        </p>
+                    </div>
+                    <label class="col-sm-2 control-label">适用范围:</label>
+                    <div class="col-sm-2">
+                        <p class="form-control-static">
+                            生产企业
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-3 search-btn col-sm-offset-9">
+                <a href="#" class="btn-sm btn-success" style="display: inline-block;" onclick="ajaxLoadframe('addEditmenu')"><span class="fa fa-plus"></span>新增</a>
+            </div>
+        </div>
+        <div data-options="region:'center',border:false" style="height:150px;">
+            <table class="easyui-grid" id="setMenuTable"></table>
+            <script>
+                $("#setMenuTable").datagrid({
+                    url: 'json/setMenu.json',
+                    method: 'get',
+                    border: false,
+                    fit: true,
+                    singleSelect: true,
+                    nowrap: true,
+                    striped: true,
+                    height: '100%',
+                    rownumbers: true,
+                    fitColumns: true,
+                    columns: [
+                        [{
+                            field: 'setname',
+                            title: '功能名称',
+                            width: 100
+                        }, {
+                            field: 'url',
+                            title: 'URL',
+                            width: 100
+                        }, {
+                            field: 'statu',
+                            title: '状态',
+                            width: 100
+                        }, {
+                            field: 'creater',
+                            title: '创建人',
+                            width: 100
+                        }, {
+                            field: 'createtime',
+                            title: '创建时间',
+                            width: 100
+                        }, {
+                            field: '_edit',
+                            title: '编辑',
+                            width: 70,
+                            align: 'center',
+                            formatter: function(val, row, index) {
+                                return '<div class="btn-group"><a class="btn-sm btn-link fn-set-edit-menu" href="#"><span class="fa fa-edit"></span></a></div>';
+                            }
+                        }]
+                    ]
+                });
+
+            </script>
+        </div>
+    </div>
+    <script>
+        $('#setMenu').dialog({
+            title: '功能设置',
+            closed: false,
+            modal: true,
+            onClose: function() {
+                $(this).dialog('destroy');
+            },
+            buttons: [{
+                text: '确定',
+                handler: function() {
+
+                }
+            }, {
+                text: '取消',
+                handler: function() {
+                    $('#setMenu').dialog('destroy');
+                }
+            }]
+        });
+        $('document').on('click', '.fn-set-edit-menu', function() {
+            ajaxLoadframe('setEditmenu');
+        });
+
+    </script>
+</div>

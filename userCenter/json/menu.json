@@ -1,0 +1,123 @@
+[{
+    "id": 1,
+    "menuname": "菜单一",
+    "userange": "",
+    "url": "",
+    "menustatu": "",
+    "createid": "",
+    "createtime": "",
+    "sondata":"2,3",
+    "children": [{
+        "id": 2,
+        "menuname": "菜单一",
+        "userange": "",
+        "url": "",
+        "menustatu": "",
+        "createid": "",
+        "createtime": "",
+        "sondata":"21,22",
+        "children": [{
+            "id": 21,
+            "menuname": "菜单一",
+            "userange": "",
+            "url": "",
+            "menustatu": "",
+            "createid": "",
+            "createtime": "",
+            "sondata":"211,212",
+            "children": [{
+                "id": 211,
+                "menuname": "菜单一",
+                "userange": "",
+                "url": "",
+                "menustatu": "",
+                "createid": "",
+                "createtime": "",
+                "sondata":""
+			}, {
+                "id": 212,
+                "menuname": "菜单一",
+                "userange": "",
+                "url": "",
+                "menustatu": "",
+                "createid": "",
+                "createtime": "",
+                "sondata":""
+			}]
+		}, {
+            "id": 22,
+            "menuname": "菜单一",
+            "userange": "",
+            "url": "",
+            "menustatu": "",
+            "createid": "",
+            "createtime": "",
+            "sondata":"221,222,223",
+            "children": [{
+                "id": 221,
+                "menuname": "菜单一",
+                "userange": "",
+                "url": "",
+                "menustatu": "",
+                "createid": "",
+                "createtime": "",
+                "sondata":""
+			}, {
+                "id": 222,
+                "menuname": "菜单一",
+                "userange": "",
+                "url": "",
+                "menustatu": "",
+                "createid": "",
+                "createtime": "",
+                "sondata":""
+			}, {
+                "id": 223,
+                "menuname": "菜单一",
+                "userange": "",
+                "url": "",
+                "menustatu": "",
+                "createid": "",
+                "createtime": "",
+                "sondata":""
+			}]
+		}]
+	}, {
+        "id": 3,
+        "menuname": "菜单一",
+        "userange": "",
+        "url": "",
+        "menustatu": "",
+        "createid": "",
+        "createtime": "",
+        "sondata":"31,32,33",
+        "children": [{
+            "id": 31,
+            "menuname": "菜单一",
+            "userange": "",
+            "url": "",
+            "menustatu": "",
+            "createid": "",
+            "createtime": "",
+            "sondata":""
+		}, {
+            "id": 32,
+            "menuname": "菜单一",
+            "userange": "",
+            "url": "",
+            "menustatu": "",
+            "createid": "",
+            "createtime": "",
+            "sondata":""
+		}, {
+            "id": 33,
+            "menuname": "菜单一",
+            "userange": "",
+            "url": "",
+            "menustatu": "",
+            "createid": "",
+            "createtime": "",
+            "sondata":""
+		}]
+	}]
+}]

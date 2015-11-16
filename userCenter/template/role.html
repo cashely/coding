@@ -1,0 +1,107 @@
+<div class="easyui-layout" data-options="fit:true,border:false">
+    <div data-options="region:'north',border:false" style="height:70px">
+        <form>
+            <div class="row form-row">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label for="rolename">角色名称</label>
+                        <input type="text" class="form-control input-sm" id="rolename" />
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label for="companyid">企业帐号</label>
+                        <input type="text" class="form-control input-sm" id="companyid" />
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label for="username">角色状态</label>
+                        <select class="form-control input-sm">
+                            <option>正常</option>
+                            <option>不正常</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-3 search-btn">
+                    <div class="btn-group">
+                        <a href="javascript:void(0);" class="btn btn-primary"><span class="fa fa-search"></span>查询</a>
+                        <a href="javascript:void(0);" class="btn btn-success" onclick="ajaxLoadframe('addRole')"><span class="fa fa-plus"></span>新增</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div data-options="region:'center',border:false" style="padding:10px;">
+        <table id="roleTable" class="table"></table>
+    </div>
+</div>
+<script>
+    $('#roleTable').datagrid({
+        url: 'json/user.json',
+        method: 'get',
+        border: false,
+        fit: true,
+        height: '100%',
+        singleSelect: true,
+        nowrap: true,
+        striped: true,
+        rownumbers: true,
+        fitColumns: true,
+        pageSize: 10, //每页显示的记录条数，默认为10 
+        pageList: [5, 10, 15], //可以设置每页记录条数的列表
+        pagination: true,
+        columns: [
+            [{
+                field: 'username',
+                title: '用户名',
+                width: 100
+            }, {
+                field: 'companyid',
+                title: '企业帐号',
+                width: 100
+            }, {
+                field: 'userstatu',
+                title: '角色状态',
+                width: 100
+            }, {
+                field: 'lastupdateid',
+                title: '最后更新人',
+                width: 100
+            }, {
+                field: 'lastupdatetime',
+                title: '最后更新时间',
+                width: 100
+            }, {
+                field: 'createid',
+                title: '创建人',
+                width: 100
+            }, {
+                field: 'createtime',
+                title: '创建时间',
+                width: 100
+            }, {
+                field: '_edit',
+                title: '操作',
+                align: 'center',
+                width: 70,
+                formatter: function(val, row, index) {
+                    return '<div class="btn-group"><a class="btn-sm btn-link fn-edit-role" href="#"><span class="fa fa-edit"></span></a><a class="btn-sm btn-link fn-set-role" href="#"><span class="fa fa-gear"></span></a></div>';
+                }
+            }]
+        ]
+    });
+</script>
+
+<script>
+	$(document).on('click','a.fn-edit-role',function(){
+// 		$('#editRole').dialog('open');
+		ajaxLoadframe('editRole');
+	});	
+	$(document).on('click','a.fn-set-role',function(){
+// 		$('#choiceRole').dialog('open');
+		ajaxLoadframe('choiceRole');
+	});
+</script>
+<!-- 设置权限 -->
+

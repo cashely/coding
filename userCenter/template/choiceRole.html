@@ -1,0 +1,137 @@
+<div class="easyui-dialog" id="choiceRole" style="width:600px;">
+    <!--     选择权限&功能设置 -->
+    <div class="easyui-layout" data-options="fit:true">
+        <div data-options="region:'north',border:false" style="height:110px;">
+            <div class="panel panel-default panel-block">
+                <div class="panel-heading">用户信息</div>
+                <div class="panel-body form-horizontal">
+                    <label class="col-sm-2 control-label">用户名:</label>
+                    <div class="col-sm-2">
+                        <p class="form-control-static">
+                            辣条点点
+                        </p>
+                    </div>
+                    <label class="col-sm-2 control-label">用户别名:</label>
+                    <div class="col-sm-2">
+                        <p class="form-control-static">
+                            辣条
+                        </p>
+                    </div>
+                    <label class="col-sm-2 control-label">手机号:</label>
+                    <div class="col-sm-2">
+                        <p class="form-control-static">
+                            15013306010
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-options="region:'center',border:false" style="height:300px">
+            <table class="easyui-treegrid" id="choiceRoletable"></table>
+            <script>
+                function show(checkid) {
+                    var s = '#check_' + checkid;
+                    //alert( $(s).attr("id"));
+                    // alert($(s)[0].checked);
+                    /*选子节点*/
+                    var nodes = $("#choiceRoletable").treegrid("getChildren", checkid);
+                    for (i = 0; i < nodes.length; i++) {
+                        $(('#check_' + nodes[i].id))[0].checked = $(s)[0].checked;
+
+                    }
+                    //选上级节点
+                    if (!$(s)[0].checked) {
+                        var parent = $("#choiceRoletable").treegrid("getParent", checkid);
+                        if (parent) {
+                            $(('#check_' + parent.id))[0].checked = false;
+                            while (parent) {
+                                $(('#check_' + parent.id))[0].checked = false;
+                                parent = $("#choiceRoletable").treegrid("getParent", parent.id);
+
+                            }
+                        }
+                    } else {
+                        var parent = $("#choiceRoletable").treegrid("getParent", checkid);
+                        if (parent) {
+                            var flag = true;
+                            var sons = parent.sondata.split(',');
+                            for (j = 0; j < sons.length; j++) {
+                                if (!$(('#check_' + sons[j]))[0].checked) {
+                                    flag = false;
+                                    break;
+                                }
+                            }
+                            if (flag)
+                                $(('#check_' + parent.id))[0].checked = true;
+                            while (flag) {
+                                parent = $("#choiceRoletable").treegrid("getParent", parent.id);
+                                if (parent) {
+                                    sons = parent.sondata.split(',');
+                                    for (j = 0; j < sons.length; j++) {
+                                        if (!$(('#check_' + sons[j]))[0].checked) {
+                                            flag = false;
+                                            break;
+                                        }
+                                    }
+                                }
+                                if (flag)
+                                    $(('#check_' + parent.id))[0].checked = true;
+                            }
+                        }
+                    }
+                }
+                $('#choiceRoletable').treegrid({
+                    url: 'json/menu.json',
+                    idField: 'id',
+                    treeField: 'menuname',
+                    method: 'get',
+                    border: false,
+                    fit: true,
+                    maxHeight: '100%',
+                    singleSelect: true,
+                    striped: true,
+                    fitColumns: true,
+                    rownumbers: true,
+                    columns: [
+                        [{
+                            field: 'menuname',
+                            title: '菜单名称',
+                            width: 100,
+                            formatter: function(val, row, index) {
+                                return "<input onclick='show(" + row.id + ")' type='checkbox' id='check_" + row.id + "' " + (row.checked ? 'checked' : '') + "/>" + val;
+                            }
+                        }, {
+                            field: 'userange',
+                            title: '使用范围',
+                            width: 100
+                        }]
+                    ]
+
+                });
+
+            </script>
+        </div>
+    </div>
+    <script>
+        $('#choiceRole').dialog({
+            title: '设置权限',
+            closed: false,
+            modal: true,
+            onClose: function() {
+                $(this).dialog('destroy');
+            },
+            buttons: [{
+                text: '确定',
+                handler: function() {
+
+                }
+            }, {
+                text: '取消',
+                handler: function() {
+                    $('#choiceRole').dialog('destroy');
+                }
+            }]
+        });
+
+    </script>
+</div>

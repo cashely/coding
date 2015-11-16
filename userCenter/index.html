@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>SSM</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link href="themes/default/easyui.css" rel="stylesheet" />
+    <link href="style/bootstrap.min.css" rel="stylesheet" />
+    <link href="style/font-awesome.min.css" rel="stylesheet" />
+    <link href="themes/ym/base.css" rel="stylesheet" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.easyui.min.js"></script>
+    <script src="js/easyui-lang-zh_CN.js"></script>
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="silderLeft">
+            <div class="easyui-layout" data-options="fit:true,border:false">
+                <div class="user-message" data-options="region:'north',border:false" style="height:170px;">
+                    <p class="user-img"><img src="images/logo.jpg" />辣条点点</p>
+                    <p><a href="#">超级管理员<span class="fa fa-caret-down"></span></a>
+                        <a href="login.html" class="btn btn-danger"><span class="fa fa-sign-out"></span>退出</a>
+                    </p>
+                </div>
+                <div class="" data-options="region:'center',border:false" style="padding:10px 0;">
+                    <ul class="menu-bar">
+                        <li>
+                            <h3><span class="fa fa-user"></span>用户管理</h3>
+                            <ul>
+                                <li><a href="#user">用户管理</a></li>
+                                <li><a href="#user">用户管理</a></li>
+                                <li><a href="#user">用户管理</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#role"><span class="fa fa-users"></span>角色管理</a>
+                        </li>
+                        <li>
+                            <a href="#menu"><span class="fa fa-align-left"></span>菜单管理</a>
+                        </li>
+                        <li>
+                            <h3><span class="fa fa-user"></span>用户管理</h3>
+                            <ul>
+                                <li><a href="#user">用户管理</a></li>
+                                <li><a href="#user">用户管理</a></li>
+                                <li><a href="#user">用户管理</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="easyui-layout" style="width:100%;" data-options="fit:true">
+                <div class="main-head" data-options="region:'north',border:false" style="height:60px;padding:15px;">
+                    <div>
+                        <h3>广东医睦科技有限公司</h3>
+                        <p class="header-notice">
+                            
+                            <a href="#" title="您有10条未读信息！"><span class="fa fa-envelope-o"></span><i class="tip tip-info">10</i></a></a>
+                            <a href="#"><span class="fa fa-bell-o"></span><i class="tip tip-success">4</i></a>
+                    <span class="select-style">
+                        <a href="#" class="btn btn-primary"></a>
+                        <a href="#" class="btn btn-success"></a>
+                        <a href="#" class="btn btn-warning"></a>
+                        <a href="#" class="btn btn-danger"></a>
+                    </span>
+                        </p>
+                    </div>
+                </div>
+                <div class="" data-options="region:'center',border:false">
+                    <div id="header-tabs" data-options="fit:true,border:false,tabHeight:'30px'">
+                        <div title="首页">
+                            sdsdsd
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        $("#header-tabs").tabs({
+            border: false
+        });
+
+    </script>
+    <script src="js/base.js"></script>
+</body>
+
+</html>
