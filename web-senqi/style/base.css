@@ -1,0 +1,244 @@
+		   *,p{
+			 margin: 0px;
+			 padding: 0px;
+			 font-family:'微软雅黑','宋体',Arial;
+			}
+	   ul,li{
+			 list-style: none;
+			}
+		body{
+			background-color: #F8F8F8;
+			}
+			#contentBody{
+				background:url(../images/bg_body.png) center top repeat-y;
+				padding-bottom: 8px;
+				min-height: 774px;
+			}
+			object{
+				display: block;
+				margin:0 auto;
+			}
+.ImaFontstyle{
+			 display: block;
+			 margin: 0 auto;
+			 clear: both;
+			 background-color: #ffffff;
+			 width: 1000px;
+			}
+.MarginLeft1 img{
+			 margin-left: 10px;
+			 margin-top: 10px;
+			}
+.BackBanner{
+			 /*background:url(../images/ima-banner.png) center center no-repeat;*/
+			 width: 1000px;
+			 margin: 0 auto;
+			 height: 393px;
+			 overflow: hidden;
+			}
+.BackBanner a{
+	cursor: default;
+}
+.BackBanner img{
+			 margin-top: 365px;
+			}
+.BackBanner a img{
+			 border: none;
+			}
+.ButtonPosition a img{
+			 border: none;
+			}
+	.BgColor,.news-box{
+			 background-color: #ffffff;
+			 width: 1000px;
+			 overflow: hidden;
+			 display: block;
+			 margin: 0px auto;
+			 font-size: 12px;
+			 padding-top: 10px;
+			}
+.FontPosition{
+			 float: right;
+			 text-align: center;
+			}
+.FontPosition1{
+	text-align: justify;
+			overflow: hidden;
+			 width: 243px;
+			 line-height: 25px;
+			 margin-left: 10px;
+			}
+.backbotton span{
+			 margin-left: 20px;
+			}
+.backbotton{
+			 background:url(../images/backs01.png) repeat-x;
+			 color: #ffffff;
+			 text-align: center;
+			 font-size: 12px;
+			 line-height: 20px;
+			 padding: 3px 0px;
+			 clear:both;
+			}
+ .LeftBlock{
+			 display: block;
+			 width: 492px;
+			 overflow: hidden;
+			 position: relative;
+			 height: 100%;
+			 float: left;
+			 border:#e3e3e3 solid 1px;
+			}
+.RightBlock{
+			 width: 492px;
+			 display: block;
+			 height: 195px;
+			 overflow: hidden;
+			 float: right;
+			 border:#e3e3e3 solid 1px;
+			}
+.SizeStyle{
+			 text-align: left;
+			 font-size: 12px;
+			 display: block;
+			 margin-top: 10px;
+			 width: 1000px;
+			 color: #ffffff;
+			 line-height: 25px;
+			 background-color: #43AA05;
+			}
+.SizeStyle p{
+			 margin-left: 9px;
+			}
+.ButtonPosition{
+			 margin:-10px 0 0 150px;
+			}
+.FontPosition1 li label{
+			 display: block;
+			 height: 60px;
+			 float: left;
+			}
+/**/
+.boxContent{
+	overflow: hidden;
+	padding: 8px;
+	height: 148px;
+}
+.leftBox{
+	position: relative;
+	float: left;
+	height: 100%;
+	overflow: hidden;
+	width: 229px;
+	text-align: justify;;
+	text-indent: 2em;
+	line-height: 25px;
+	color: #343434;
+}
+.leftBox .scrollText{
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.rightBox{
+	float: right;
+	width: 235px;
+	margin-left: 8px;
+}
+.SizeStyle a{
+	color: #f3f1f1;
+	text-decoration: underline;
+}
+.SizeStyle a:hover{
+	color: #ffffff;
+	text-decoration: none;
+}
+.databaseUl{
+	background:url(../images/ima-back2.png) right 15px no-repeat ;
+	font-size: 12px;
+	color: #696969;
+	padding: 10px;
+}
+.spacing{
+	letter-spacing:8px;
+}
+.news{
+	overflow: hidden;
+}
+.news-box{
+	overflow: hidden;
+}
+.news-box .LeftBlock{
+	/*width: 734px;*/
+}
+.news-box .LeftBlock ul{
+	text-align: left;
+}
+.news-box .LeftBlock li i{
+	font-size: 18px;
+
+	color: #43aa05;
+	margin-right: 10px;
+}
+.news-box .LeftBlock a{
+	color: #333;
+	display: block;
+	line-height: 25px;
+	overflow: hidden;
+	text-decoration: none;
+}
+.news-box .LeftBlock a:hover{
+	color: #43aa05;
+}
+.xubox_close1{
+	position: absolute;
+}
+.news-box .LeftBlock  a span{
+	float: right;
+	color: #a7a7a7;
+	display: inline-block;
+	vertical-align: middle;
+}
+.vadio{
+	float: right;
+	width: 492px;
+
+	height: auto;
+	text-align: center;
+}
+.video-box .FontPosition1{
+	/*padding-top: 20px;*/
+}
+.video-box .FontPosition1 li{
+	margin-top: 15px;
+}
+.xubox_dialog{
+	overflow: auto;
+}
+.xubox_text{
+	float: none;
+}
+.layui-layer-content{
+	font-size: 12px;
+}
+.layui-layer-content p{
+	text-indent: 2em;
+	padding: 5px 10px 10px 10px;
+	color: #696969;
+	text-align: justify;
+	line-height: 2;
+}
+.vadio h3{
+	line-height: 30px;
+	height: 30px;
+	color: #696969;
+}
+.layui-layer-title{
+	font-weight: bold;
+}
+.video-box .LeftBlock{
+	width: 600px;
+}
+.news-box .LeftBlock{
+	height: 257px;
+}
